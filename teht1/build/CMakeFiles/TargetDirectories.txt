@@ -1,0 +1,7 @@
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/teht1.dir
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/edit_cache.dir
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/rebuild_cache.dir
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/list_install_components.dir
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/install.dir
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/install/local.dir
+C:/GIT/olio-ohjelmointi/teht1/build/CMakeFiles/install/strip.dir
