@@ -4,6 +4,8 @@
 
 using namespace std;
 
+void startGame(void);
+
 int main()
 {
     // need to make this seed random too, so that the number will not always be the same.
@@ -12,6 +14,13 @@ int main()
     cout << "Hello World!" << endl;
     cout << "\nAnother Day!" << endl;
 
+    startGame();
+
+
+    return 0;
+}
+
+void startGame() {
     // current time to choose a srand value
     srand(time(0));
     //for loop for value searching.
@@ -31,5 +40,4 @@ int main()
 
     }
     cout<<"On the money, good job!"<<endl;
-    return 0;
 }
