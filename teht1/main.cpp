@@ -11,6 +11,7 @@ int main()
 
     cout << "Hello World!" << endl;
     cout << "\nAnother Day!" << endl;
+<<<<<<< HEAD
 
     // current time to choose a srand value
     srand(time(0));
