@@ -13,7 +13,7 @@ private:
     int playerGuess=0;
     int randomNumber=0;
     int numberOfGuesses=0;
-    void printGameResult();
+    void printGameResult(void);
 protected:
 
 };
