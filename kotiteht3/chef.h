@@ -6,8 +6,9 @@ using namespace std;
 class Chef
 {
 public:
+    Chef();
     Chef(string);
-    ~Chef();
+    virtual ~Chef();
     string name="";
     void makeSalad();
     void makeSoup();
@@ -16,9 +17,11 @@ public:
 class italianChef : public Chef
 {
 public:
+    italianChef();
     italianChef(string);
-    ~italianChef();
+    virtual ~italianChef();
     void makePasta();
+    string getName();
 };
 
 #endif // CHEF_H
