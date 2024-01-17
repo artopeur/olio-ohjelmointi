@@ -5,6 +5,7 @@ using namespace std;
 Chef::Chef() {
     // ei tule nimeä kun käytetään italianChef kutsua kontruktorille.
     //cout<<"Chef "<<name<<" konstruktori"<<endl;
+    //name=italianChef().getName();
 }
 
 Chef::Chef(string a) {
@@ -22,13 +23,17 @@ void Chef::makeSalad() {
 }
 italianChef::italianChef(string b) {
     name=b;
-    cout<< "Chef " << name << " konstruktori" << endl;
+    cout<< "italianChef " << name << " konstruktori" << endl;
 
 }
 italianChef::~italianChef() {
-    cout<<"Chef "<<name<<" destruktori"<<endl;
+    cout<<"italianChef "<<name<<" destruktori"<<endl;
 }
 
 string italianChef::getName() {
     return name;
+}
+
+void italianChef::makePasta() {
+    cout<< "Chef "<< name << " makes pasta"<<endl;
 }

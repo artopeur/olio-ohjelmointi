@@ -5,11 +5,10 @@ using namespace std;
 int main()
 {
     //cout << "Hello World!" << endl;
-    Chef Gordon("Gordon Ramsay");
-    Gordon.makeSalad();
-    Gordon.makeSoup();
-    Chef Anthony("Anthony Bourdain");
-    Anthony.makeSalad();
-    Anthony.makeSoup();
+    italianChef Mario("Mario");
+    Chef Jyrki("Jyrki");
+    Jyrki.makeSalad();
+    Mario.makePasta();
+    Jyrki.makeSoup();
     return 0;
 }
