@@ -2,6 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLineEdit>
+#include <QtCore>
+#include <QCoreApplication>
+#include <Qdebug>
+#include <ctime>
+#include <cstdlib>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -48,7 +55,11 @@ private slots:
 
     void on_pushButtonCheck_clicked();
 
+signals:
+    void ButtonPress();
 private:
     Ui::MainWindow *ui;
 };
+
+
 #endif // MAINWINDOW_H
