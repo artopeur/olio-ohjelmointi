@@ -1,15 +1,15 @@
 #ifndef KATUTASO_H
 #define KATUTASO_H
 #include "kerros.h"
-#include "asunto.h"
+//#include "asunto.h"
 
-class Katutaso
+class Katutaso : public kerros
 {
 public:
     Katutaso();
     ~Katutaso();
 
-    void maaritaAsunnot();
+    virtual void maaritaAsunnot() override;
     double laskeKulutus(double);
     Asunto as1;
     Asunto as2;

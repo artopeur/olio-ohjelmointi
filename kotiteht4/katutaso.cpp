@@ -1,12 +1,12 @@
 #include "katutaso.h"
-#include "asunto.h"
+//#include "asunto.h"
 #include <iostream>
 
 using namespace std;
 
 Katutaso::Katutaso() {
     cout<< "katutaso luotu"<<endl;
-    maaritaAsunnot();
+    Katutaso::maaritaAsunnot();
 }
 
 Katutaso::~Katutaso()

@@ -5,12 +5,12 @@
 
 using namespace std;
 
-class kerros
+class kerros : public Asunto
 {
 public:
     kerros();
 
-    void maaritaAsunnot();
+    virtual void maaritaAsunnot();
     double laskeKulutus(double);
     Asunto as1;
     Asunto as2;

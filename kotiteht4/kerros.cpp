@@ -1,5 +1,5 @@
 #include "kerros.h"
-#include "asunto.h"
+//#include "asunto.h"
 #include <iostream>
 using namespace std;
 kerros::kerros() {

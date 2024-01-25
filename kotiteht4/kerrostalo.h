@@ -1,9 +1,9 @@
 #ifndef KERROSTALO_H
 #define KERROSTALO_H
 #include "katutaso.h"
-#include "kerros.h"
+//#include "kerros.h"
 
-class kerrostalo
+class kerrostalo :  public Katutaso
 {
 public:
     kerrostalo();
