@@ -6,9 +6,6 @@
 #include <QtCore>
 #include <QCoreApplication>
 #include <Qdebug>
-#include <ctime>
-#include <cstdlib>
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

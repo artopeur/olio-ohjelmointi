@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <iostream>
-#include <QDebug>
+#include <ctime>
+#include <cstdlib>
+
+
 
 using namespace std;
 
