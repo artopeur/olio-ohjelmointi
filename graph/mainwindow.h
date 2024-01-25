@@ -2,13 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-<<<<<<< HEAD
 #include <QLineEdit>
 #include <QtCore>
 #include <QCoreApplication>
 #include <Qdebug>
-=======
->>>>>>> parent of e01236f (hienoisia muutoksia)
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

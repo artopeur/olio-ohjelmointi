@@ -1,18 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-<<<<<<< HEAD
 #include <ctime>
 #include <cstdlib>
-
-
-=======
-#include <iostream>
 #include <QLineEdit>
 #include <QCoreApplication>
 #include <Qdebug>
-#include <ctime>
-#include <cstdlib>
->>>>>>> parent of e01236f (hienoisia muutoksia)
 
 using namespace std;
 
