@@ -1,9 +1,18 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+<<<<<<< HEAD
 #include <ctime>
 #include <cstdlib>
 
 
+=======
+#include <iostream>
+#include <QLineEdit>
+#include <QCoreApplication>
+#include <Qdebug>
+#include <ctime>
+#include <cstdlib>
+>>>>>>> parent of e01236f (hienoisia muutoksia)
 
 using namespace std;
 
@@ -12,7 +21,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
 }
 
 MainWindow::~MainWindow()
@@ -26,18 +34,6 @@ void MainWindow::makeRandom() {
     QString strText = "The random value is: ";
     ui->myTextBoxTest->setText(strText);
 }
-
-void ButtonPress() {
-
-}
-
-/*
-QObject::connect(&StartButton, &QPushButton::clicked,
-                 &on_StartButton_clicked) {
-
-}
-
-//*/
 
 void MainWindow::on_StartButton_clicked()
 {
