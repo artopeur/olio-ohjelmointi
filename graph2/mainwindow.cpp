@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
 }
 
 
-// setTextSlot() määritys
+// setTextSlot() slotin määritys
 void MainWindow::setTextSlot()
 {
     ui->lineEdit->setText("Testi");
@@ -27,6 +27,7 @@ void MainWindow::setTextSlot()
     ui->pushButton->setVisible(0);
 }
 
+// setButtonActive() Slotin määritys
 void MainWindow::setButtonActive()
 {
     ui->pushButton->setVisible(1);
