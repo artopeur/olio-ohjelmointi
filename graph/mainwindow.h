@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow
     QString guess="";
     int randomNumber = 0;
     int playerGuess = 0;
+    int numberOfGuesses = 0;
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -26,31 +27,21 @@ public:
     void makeRandom();
 private slots:
 
-    void on_StartButton_clicked();
+    void StartButton_clicked();
+    void text_guess_textChanged();
 
-    void on_Button0_clicked();
-    void on_text_guess_textChanged();
+    void Button0_clicked();
+    void Button1_clicked();
+    void Button2_clicked();
+    void Button3_clicked();
+    void Button4_clicked();
+    void Button5_clicked();
+    void Button6_clicked();
+    void Button7_clicked();
+    void Button8_clicked();
+    void Button9_clicked();
 
-
-    void on_Button1_clicked();
-
-    void on_Button2_clicked();
-
-    void on_Button3_clicked();
-
-    void on_Button4_clicked();
-
-    void on_Button5_clicked();
-
-    void on_Button6_clicked();
-
-    void on_Button7_clicked();
-
-    void on_Button8_clicked();
-
-    void on_Button9_clicked();
-
-    void on_pushButtonCheck_clicked();
+    void pushButtonCheck_clicked();
 
 private:
     Ui::MainWindow *ui;
