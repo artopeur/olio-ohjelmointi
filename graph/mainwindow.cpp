@@ -72,6 +72,7 @@ void MainWindow::Button1_clicked()
 
     guess=guess+'1';
     ui->text_guess->setText(guess);
+    qDebug() << "Button 1" << guess;
 }
 
 
