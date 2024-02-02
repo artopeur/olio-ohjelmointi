@@ -28,6 +28,12 @@ void kerros::maaritaAsunnot() {
     as4->maarita(2,100);
 }
 
-double kerros::laskeKulutus(double sum) {
+double kerros::laskeKulutus(double a) {
+    double sum=0.00;
+    sum=as1->laskekulutus(a);
+    sum+=as2->laskekulutus(a);
+    sum+=as3->laskekulutus(a);
+    sum+=as4->laskekulutus(a);
 
+    return sum;
 }

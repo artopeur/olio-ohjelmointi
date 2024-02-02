@@ -19,5 +19,9 @@ void kerrostalo::maaritaAsunnot() {
 }
 
 double kerrostalo::laskeKulutus(double a) {
-
+    double sum=0.00;
+    sum=eka->laskeKulutus(a);
+    sum+=toka->laskeKulutus(a);
+    sum+=kolmas->laskeKulutus(a);
+    return sum;
 }

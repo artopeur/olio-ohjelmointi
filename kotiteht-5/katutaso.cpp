@@ -20,3 +20,11 @@ void katutaso::maaritaAsunnot() {
     as1->maarita(2,100);
     as2->maarita(2,100);
 }
+
+double katutaso::laskeKulutus(double a)
+{
+    double sum=0.00;
+    sum=as1->laskekulutus(a);
+    sum+=as2->laskekulutus(a);
+    return sum;
+}
