@@ -27,8 +27,10 @@ private:
 
 private slots:
     void numberClickedHandler();
-    //void clearAndEnterClickHandler();
+    void clearAndEnterClickHandler();
     void addSubMulDivClickHandler();
-    //void ResetLineEdits();
+    void ResetLineEdits();
+    void numberOneChanged();
+    void numberTwoChanged();
 };
 #endif // MAINWINDOW_H

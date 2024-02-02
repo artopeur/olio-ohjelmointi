@@ -20,6 +20,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->N9, SIGNAL(clicked(bool)),this,SLOT(numberClickedHandler()));
 
     connect(ui->add, SIGNAL(clicked(bool)),this,SLOT(addSubMulDivClickHandler()));
+    connect(ui->mul, SIGNAL(clicked(bool)), this, SLOT(addSubMulDivClickHandler()));
+    connect(ui->div, SIGNAL(clicked(bool)),this, SLOT(addSubMulDivClickHandler()));
+    connect(ui->sub, SIGNAL(clicked(bool)),this, SLOT(addSubMulDivClickHandler()));
+
+    connect(ui->clear, SIGNAL(clicked(bool)), this, SLOT(clearAndEnterClickHandler()));
+    connect(ui->enter, SIGNAL(clicked(bool)),this,SLOT(clearAndEnterClickHandler()));
+
+    connect(ui->num1, SIGNAL(textChanged(QString)), this, SLOT(numberOneChanged()));
+    connect(ui->num2, SIGNAL(textChanged(QString)), this, SLOT(numberTwoChanged()));
 
     state = 1;
 }
@@ -49,11 +58,61 @@ void MainWindow::numberClickedHandler()
         qDebug() <<"state 1: "<< n1;
         ui->num1->setText(number1);
     }
-    else  {
+    else if (state == 2)  {
         number2 = number2+a[1];
         float n2=number2.toFloat();
         qDebug() <<"state 2: "<< n2;
         ui->num2->setText(number2);
+    }
+    else {
+        ResetLineEdits();
+        number1 = a[1];
+        state = 1;
+        ui->num1->setText(number1);
+    }
+
+}
+
+void MainWindow::clearAndEnterClickHandler()
+{
+    QPushButton * button = qobject_cast<QPushButton*>(sender());
+    QString name= button->objectName();
+    qDebug() << "Button name: " << name;
+
+    if(name=="clear") {
+        operand = 0;
+        state = 1;
+        ResetLineEdits();
+    }
+    else {
+        float n1 = number1.toFloat();
+        float n2 = number2.toFloat();
+
+
+        qDebug()<<"operand =" <<operand;
+        switch(operand) {
+        case 0:
+            qDebug() <<operand << " = +";
+            result=n1+n2;
+            break;
+        case 1:
+            qDebug() <<operand << " = -";
+            result=n1-n2;
+            break;
+        case 2:
+            qDebug() <<operand << " = *";
+            result=n1*n2;
+            break;
+        case 3:
+            qDebug() <<operand << " = /";
+            result=n1/n2;
+            break;
+        }
+
+        ui->result->setText(QString::number(result));
+        //ResetLineEdits();
+        state = 3;
+        operand=4;
     }
 
 }
@@ -78,4 +137,31 @@ void MainWindow::addSubMulDivClickHandler()
     }
 
     state = 2;
+    qDebug()<<"Operand is: " <<operand;
+}
+
+void MainWindow::ResetLineEdits()
+{
+    number1 = "";
+    number2 = "";
+    ui->num1->setText(number1);
+    ui->num2->setText(number2);
+    result=0;
+    ui->result->setText(QString::number(result));
+}
+
+void MainWindow::numberOneChanged()
+{
+    state=1;
+    number1 = ui->num1->text();
+    qDebug() << "Number 1 :" << number1;
+
+}
+
+void MainWindow::numberTwoChanged()
+{
+    state=2;
+    number2 = ui->num2->text();
+    qDebug() << "Number 2 :" <<number2;
+
 }
