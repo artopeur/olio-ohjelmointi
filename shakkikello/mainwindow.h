@@ -25,14 +25,17 @@ private:
     short currentPlayer = 0;
     short gameTime = 0;
 
-    QObject *pQTimer = new QTimer();
+    //QObject *pQTimer;
+    QTimer * pQTimer;
 
     void updateProgressBar();
     void setGameInfoText(QString, short);
 
 private slots:
     void startGame();
+    void stopGame();
     void playValue();
-
+    void timerRun();
+    void switchPlayer();
 };
 #endif // MAINWINDOW_H
