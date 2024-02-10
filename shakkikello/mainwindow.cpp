@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->progressBar->setValue(100);
     ui->progressBar_2->setValue(100);
     updateProgressBar();
+    setPlayerInfoText("", 1);
+    setGameInfoText("Choose time",2);
     connect(ui->startGameButton, SIGNAL(clicked(bool)), this, SLOT(startGame()));
     connect(ui->gameMode1,SIGNAL(clicked(bool)),this,SLOT(playValue()));
     connect(ui->gameMode2,SIGNAL(clicked(bool)),this,SLOT(playValue()));
@@ -84,8 +86,37 @@ void MainWindow::setGameInfoText(QString text, short size)
     ui->label->setText(text);
 }
 
+void MainWindow::setPlayerInfoText(QString text, short size)
+{
+    QFont font;
+    ui->label_2->font();
+
+    switch(size) {
+    case 1:
+        font.setPointSize(10);
+        break;
+    case 2:
+        font.setPointSize(20);
+        break;
+    case 3:
+        font.setPointSize(30);
+        break;
+    case 4:
+        font.setPointSize(40);
+        break;
+    default:
+        font.setPointSize(10);
+        break;
+    }
+
+
+    ui->label_2->setFont(font);
+    ui->label_2->setText(text);
+}
+
 void MainWindow::startGame() {
     setGameInfoText("Game ongoing",4);
+    setPlayerInfoText("choose who starts",2);
     //pQTimer->startTimer(1000);
     pQTimer->start(1000);
 
@@ -105,17 +136,17 @@ void MainWindow::playValue()
     qDebug() << "Button name: " << name;
 
     if(name == "gameMode1" && currentPlayer == 0) {
-        setGameInfoText("Button gameMode1 clicked : 120 seconds",2);
+        setGameInfoText("Button clicked : 120 seconds",2);
         //test time faster
-        gameTime=6;
-        //gameTime=2*60;
+        //gameTime=6;
+        gameTime=2*60;
         player1Time=gameTime;
         player2Time=gameTime;
         ui->progressBar->setMaximum(gameTime);
         ui->progressBar_2->setMaximum(gameTime);
     }
     else if(name == "gameMode2" && currentPlayer == 0){
-        setGameInfoText("Button gameMode2 clicked : 5 minutes", 2);
+        setGameInfoText("Button clicked : 5 minutes", 2);
         gameTime=5*60;
         player1Time=gameTime;
         player2Time=gameTime;
@@ -132,9 +163,11 @@ void MainWindow::timerRun()
     qDebug() << "Player 2: " << player2Time;
 
     if(player2Time>0 && currentPlayer==2) {
+        setGameInfoText("Game ongoing",4);
         player2Time--;
     }
     else if(player1Time>0 && currentPlayer==1) {
+        setGameInfoText("Game ongoing",4);
         player1Time--;
     }
     else {
@@ -148,6 +181,7 @@ void MainWindow::timerRun()
         }
         else {
             //not started yet
+            //setGameInfoText("Start Game by choosing player",1);
         }
         //stopGame();
     }
@@ -166,10 +200,12 @@ void MainWindow::switchPlayer()
 
     if(name == "switchPlayerButton") {
         qDebug()<<"player 1";
+        setPlayerInfoText("Player 2 turn", 2);
         currentPlayer = 2;
     }
     else if(name == "switchPlayerButton2") {
         qDebug()<<"player 2";
+        setPlayerInfoText("Player 1 turn", 2);
         currentPlayer = 1;
     }
 

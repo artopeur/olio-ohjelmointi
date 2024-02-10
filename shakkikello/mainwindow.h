@@ -30,6 +30,7 @@ private:
 
     void updateProgressBar();
     void setGameInfoText(QString, short);
+    void setPlayerInfoText(QString, short);
 
 private slots:
     void startGame();
