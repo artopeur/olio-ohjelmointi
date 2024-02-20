@@ -30,11 +30,11 @@ void MainWindow::readData(QNetworkReply* reply) {
 void MainWindow::checkSite(QString url) {
     QUrl qrl(url);
     manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(readData(*reply)));
+    connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(readData(QNetworkReply *)));
     QNetworkRequest request(qrl);
 
 
-    manager->get(request);
+    reply=manager->get(request);
     //QNetworkRequest request(url);
     qDebug()<<"request sent.";
 }

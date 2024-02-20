@@ -21,6 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QNetworkAccessManager *manager;
+    QNetworkReply *reply;
     QString url;
     void checkSite(QString url);
 
