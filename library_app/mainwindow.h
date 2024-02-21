@@ -24,6 +24,7 @@ public:
 
     // create network from dynamic memory
     network* net;
+    QString loginurl="http://localhost/login";
     QString url = "http://localhost/book";
 
 private slots:

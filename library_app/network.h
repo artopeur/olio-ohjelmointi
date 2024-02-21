@@ -6,6 +6,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QDebug>
+#include <QUrl>
 
 class network : public QObject
 {
@@ -17,19 +18,25 @@ public:
     QString url="http://localhost:3000/book";
     int port=3000;
     QByteArray response;
-    //QNetworkReply *reply =;
+    QNetworkReply *reply;
     QNetworkAccessManager* getManager;
     QNetworkAccessManager* getAllManager;
+    QNetworkAccessManager* loginManager;
 
     void getAsiakas(QString asiakasId);
     void getAllBooks(QString site_url);
+    QByteArray getLogin();
 
     QByteArray getResponse() const;
+    QByteArray getLogin(QString);
 
 private slots:
     void asiakasGetSlot(QNetworkReply* reply);
     void getAllBooksSlot(QNetworkReply* reply);
+    void loginSlot(QNetworkReply* reply);
+
 signals:
+    void login();
     void getData();
     void AllBooks();
 
