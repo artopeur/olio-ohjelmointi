@@ -25,8 +25,8 @@ void MainWindow::buttonPressed()
     // get all data?
     net = new network;
     qDebug()<<"Made network constructor";
-    net->getLogin(loginurl);
-    connect(net, SIGNAL(AllBooks()), this, SLOT(getAllBooksSlot()));
+    net->Login(loginurl);
+    connect(net, SIGNAL(LoginSignal()), this, SLOT(getAllBooksSlot()));
 
     //net->getAllBooks(url);
 

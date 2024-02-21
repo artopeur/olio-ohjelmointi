@@ -18,27 +18,27 @@ public:
     QString url="http://localhost:3000/book";
     int port=3000;
     QByteArray response;
+    QByteArray token;
     QNetworkReply *reply;
-    QNetworkAccessManager* getManager;
-    QNetworkAccessManager* getAllManager;
-    QNetworkAccessManager* loginManager;
-
-    void getAsiakas(QString asiakasId);
-    void getAllBooks(QString site_url);
-    QByteArray getLogin();
+    QNetworkAccessManager* manager;
 
     QByteArray getResponse() const;
-    QByteArray getLogin(QString);
+
+    void Login(QString login_url);
+    void sendRequest(QString site_url, QByteArray* token);
+    void deleteRequest(QString site_url);
+
 
 private slots:
-    void asiakasGetSlot(QNetworkReply* reply);
-    void getAllBooksSlot(QNetworkReply* reply);
-    void loginSlot(QNetworkReply* reply);
+    void loginSlot(QNetworkReply*);
+    void readData(QNetworkReply* reply);
+
+
 
 signals:
-    void login();
+    void LoginSignal();
     void getData();
-    void AllBooks();
+
 
 
 private:
