@@ -1,5 +1,7 @@
 #include "network.h"
 
+
+
 network::network() {
     qDebug() << "network constructor";
     // Got lost here. Questions and more questions.
@@ -20,15 +22,33 @@ QByteArray network::getResponse() const
 
 void network::Login(QString login_url)
 {
+    //body
+    QJsonObject jsonObj;
+    jsonObj.insert("password", "pass01");
+    jsonObj.insert("username","user01");
+
+    // degub jsonObj
+    qDebug()<<"JSON: "<<jsonObj;
+
+
     qDebug()<<"GetLogin: ";
     qDebug()<<login_url;
+    //manager
     manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this,SLOT(loginSlot(QNetworkReply*)));
     QUrl qrl(login_url);
+   //request
     QNetworkRequest Request(qrl);
-    reply = manager->get(Request);
+    // headers
+    Request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
+    // send the request
+    //reply = manager->get(Request);
+    qDebug()<<"Json object network: "<<jsonObj;
+    qDebug()<<"JsonDocument: "<< QJsonDocument(jsonObj).toJson();
+
+    reply = manager->post(Request, QJsonDocument(jsonObj).toJson());
 
 }
 
@@ -44,7 +64,9 @@ void network::deleteRequest(QString site_url)
 
 void network::loginSlot(QNetworkReply *reply)
 {
-    qDebug()<<reply->readAll();
+    response=reply->readAll();
+    //qDebug()<<reply->readAll();
+    emit LoginSignal();
 }
 
 void network::readData(QNetworkReply *reply)

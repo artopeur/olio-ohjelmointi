@@ -27,16 +27,23 @@ void MainWindow::buttonPressed()
     qDebug()<<"Made network constructor";
     net->Login(loginurl);
     connect(net, SIGNAL(LoginSignal()), this, SLOT(getAllBooksSlot()));
+    //login_token = net->getResponse();
+    QString token = QString(login_token);
+    qDebug()<<"Token: " << login_token;
 
-    //net->getAllBooks(url);
+
+/*
+    ui->txt_data->setText((token));
+    ui->txt_data->setText("Test");
+    net->getAllBooks(url);
 
 
     // doesn't work
-    //network::getAsiakas("1");
+    network::getAsiakas("1");
 
     // should be the right one.
-    //net->getAsiakas("1");
-
+    net->getAsiakas("1");
+*/
 }
 
 void MainWindow::getAllBooksSlot()
@@ -45,4 +52,14 @@ void MainWindow::getAllBooksSlot()
     qDebug()<<"In getAllBooksSlot-main:  SIGNAL AllBooks() was received.";
     QByteArray response = net->getResponse();
     qDebug()<<"The response= "<<response;
+    ui->txt_data->setText(response);
+}
+
+void MainWindow::getLoginSlot() {
+    qDebug();
+    qDebug()<<"In getLoginSlot-main:  SIGNAL Login() was received.";
+    loginToken = net->getResponse();
+    qDebug()<<"The response= "<<loginToken;
+    ui->txt_data->setText(loginToken);
+
 }

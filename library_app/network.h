@@ -7,6 +7,8 @@
 #include <QNetworkReply>
 #include <QDebug>
 #include <QUrl>
+#include <QJsonObject>
+#include <QJsonDocument>
 
 class network : public QObject
 {
@@ -30,7 +32,7 @@ public:
 
 
 private slots:
-    void loginSlot(QNetworkReply*);
+    void loginSlot(QNetworkReply* reply);
     void readData(QNetworkReply* reply);
 
 
