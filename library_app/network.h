@@ -9,6 +9,7 @@
 #include <QUrl>
 #include <QJsonObject>
 #include <QJsonDocument>
+#include <QJsonArray>
 
 class network : public QObject
 {

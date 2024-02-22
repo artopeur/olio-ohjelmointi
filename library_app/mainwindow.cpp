@@ -37,8 +37,20 @@ void MainWindow::getAllBooksSlot()
     qDebug()<<"In getAllBooksSlot-main:  SIGNAL readData() was received.";
     QByteArray dataInput=net->getResponse();
     qDebug()<<"The response= "<<dataInput;
-    ui->txt_data->setText(dataInput);
 
+    ui->txt_data->setText(dataInput);
+    qDebug();
+
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(dataInput);
+    QJsonArray json_array = json_doc.array();
+    QString book;
+    foreach (const QJsonValue &value, json_array) {
+       QJsonObject json_obj = value.toObject();
+       book+=QString::number(json_obj["id_book"].toInt())+", "+json_obj["name"].toString()+", "+json_obj["author"].toString() + "\r";
+    }
+    qDebug()<<book;
+    ui->txt_data->setText(book);
 }
 
 void MainWindow::getLoginSlot() {
