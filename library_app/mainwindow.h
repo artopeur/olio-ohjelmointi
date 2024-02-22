@@ -26,18 +26,18 @@ public:
     network* net;
     QString loginurl="http://localhost:3000/login";
     QString url = "http://localhost:3000/book";
-    QByteArray login_token;
+
 
 private slots:
     void buttonPressed();
-
-private slots:
     void getLoginSlot();
+    void getAllBooks();
     void getAllBooksSlot();
 
 private:
     Ui::MainWindow *ui;
 
     QByteArray loginToken;
+    QByteArray bearer;
 };
 #endif // MAINWINDOW_H

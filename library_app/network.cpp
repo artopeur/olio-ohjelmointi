@@ -4,8 +4,6 @@
 
 network::network() {
     qDebug() << "network constructor";
-    // Got lost here. Questions and more questions.
-    //connect(reply, &QNetworkReply::finished, this, SLOT(getAllBooksSlot(QNetworkReply*)));
 
     qDebug()<<url;
     //emit AllBooks();
@@ -55,6 +53,29 @@ void network::Login(QString login_url)
 void network::sendRequest(QString site_url, QByteArray* token)
 {
     qDebug()<<site_url<<" : "<<token;
+    //body
+
+    //setup url for the request
+    QUrl qrl(site_url);
+    //request
+    QNetworkRequest Request(qrl);
+
+    //webtoken as header.
+    Request.setRawHeader(QByteArray("Authorization"),(*token));
+
+
+    qDebug()<<site_url;
+    //manager
+    manager = new QNetworkAccessManager(this);
+    connect(manager, SIGNAL(finished(QNetworkReply*)),
+            this,SLOT(readData(QNetworkReply*)));
+
+
+    // headers
+    //Request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    // send the request
+    reply = manager->get(Request);
 }
 
 void network::deleteRequest(QString site_url)
@@ -71,7 +92,10 @@ void network::loginSlot(QNetworkReply *reply)
 
 void network::readData(QNetworkReply *reply)
 {
-    qDebug()<<reply->readAll();
+    qDebug() << "readData: ";
+    response = reply->readAll();
+    //qDebug()<<response;
+    emit getData();
 }
 
 
@@ -99,4 +123,8 @@ void network::getAsiakas(QString asiakasId)
     //qDebug()<<reply->readAll();
     qDebug()<<token;
 }
+
+    // Got lost here. Questions and more questions.
+    //connect(reply, &QNetworkReply::finished, this, SLOT(getAllBooksSlot(QNetworkReply*)));
+
 */
