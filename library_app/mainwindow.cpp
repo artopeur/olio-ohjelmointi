@@ -26,24 +26,7 @@ void MainWindow::buttonPressed()
     net = new network;
     qDebug()<<"Made network constructor";
     net->Login(loginurl);
-    connect(net, SIGNAL(LoginSignal()), this, SLOT(getAllBooksSlot()));
-    //login_token = net->getResponse();
-    QString token = QString(login_token);
-    qDebug()<<"Token: " << login_token;
-
-
-/*
-    ui->txt_data->setText((token));
-    ui->txt_data->setText("Test");
-    net->getAllBooks(url);
-
-
-    // doesn't work
-    network::getAsiakas("1");
-
-    // should be the right one.
-    net->getAsiakas("1");
-*/
+    connect(net, SIGNAL(LoginSignal()), this, SLOT(getLoginSlot()));
 }
 
 void MainWindow::getAllBooksSlot()
@@ -60,6 +43,8 @@ void MainWindow::getLoginSlot() {
     qDebug()<<"In getLoginSlot-main:  SIGNAL Login() was received.";
     loginToken = net->getResponse();
     qDebug()<<"The response= "<<loginToken;
+    // change to say connected when connection established and failed if was failed connection.
+    // will need to define unauthorized access too.
     ui->txt_data->setText(loginToken);
 
 }
