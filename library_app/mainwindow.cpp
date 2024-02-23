@@ -63,8 +63,6 @@ void MainWindow::getLoginSlot() {
     // change to say connected when connection established and failed if was failed connection.
     // will need to define unauthorized access too.
     ui->txt_data->setText(loginToken);
-
-
 }
 
 void MainWindow::getAllBooks()
